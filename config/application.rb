@@ -24,7 +24,7 @@ module MeetingRooms
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
     config.generators do |g|
-      g.orm :mongo_mapper
+      g.orm :mongoid
     end
 
     # Only load the plugins named here, in the order given (default is alphabetical).
