@@ -31,6 +31,9 @@ GEM
     addressable (2.2.8)
     arel (3.0.2)
     bootstrap-sass (2.0.3.1)
+    bson (1.6.4)
+    bson_ext (1.6.4)
+      bson (~> 1.6.4)
     builder (3.0.0)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -79,8 +82,16 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.18)
+    mongo (1.6.4)
+      bson (~> 1.6.4)
+    mongo_mapper (0.11.1)
+      activemodel (~> 3.0)
+      activesupport (~> 3.0)
+      plucky (~> 0.4.0)
     multi_json (1.3.6)
     nokogiri (1.5.4)
+    plucky (0.4.4)
+      mongo (~> 1.5)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -153,10 +164,12 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 2.0.3)
+  bson_ext (~> 1.5)
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner
   jquery-rails
+  mongo_mapper
   rails (= 3.2.5)
   rspec-rails (= 2.10.0)
   sass-rails (~> 3.2.3)

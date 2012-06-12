@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.5'
 
 gem 'bootstrap-sass', '~> 2.0.3'
+gem "bson_ext", "~> 1.5"
+gem 'mongo_mapper'
 
 
 # Gems used only for assets and not required
