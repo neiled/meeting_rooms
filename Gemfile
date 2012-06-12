@@ -25,6 +25,12 @@ group :development, :test do
   gem 'rspec-rails', '2.10.0'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
+  gem 'guard-rspec'
+end
+
+group :test do
+  gem 'rb-fsevent', :require => false
+  gem 'growl'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
