@@ -1,4 +1,4 @@
 Feature: Test feature
   Some feature
 
-  Scenario: Test Scenario
+  Scenario: Test Scenarios Now Please

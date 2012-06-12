@@ -31,6 +31,9 @@ end
 group :test do
   gem 'rb-fsevent', :require => false
   gem 'growl'
+  gem 'guard-spork'
+  gem 'guard-cucumber'
+  gem 'spork'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
