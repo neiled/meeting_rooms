@@ -6,6 +6,12 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  field :name
+  validates_presence_of :name
+  validates_uniqueness_of :name, :email, :case_sensitive => false
+
   ## Database authenticatable
   field :email,              :type => String, :null => false, :default => ""
   field :encrypted_password, :type => String, :null => false, :default => ""
