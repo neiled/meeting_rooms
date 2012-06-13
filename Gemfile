@@ -34,6 +34,7 @@ group :test do
   gem 'guard-spork'
   gem 'guard-cucumber'
   gem 'spork'
+  gem 'factory_girl_rails'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
