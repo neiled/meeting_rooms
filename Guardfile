@@ -28,11 +28,22 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch('spec/spec_helper.rb')
   watch('test/test_helper.rb')
   watch('spect/support/')
+  watch('config/routes.rb')
 end
 
-guard 'cucumber', :cli => '--drb --format progress --no-profile' do
+guard 'cucumber', :cli => '--no-profile --drb --color --strict --format progress --format rerun --out rerun.txt',
+                  :all_on_start => false do
   watch(%r{^features/.+\.feature$})
-  watch(%r{^features/support/.+$})          { 'features' }
-  watch(%r{^features/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
+  watch(%r{^features/support/.+$}) { 'features' }
+  watch(%r{^app/assets/.+$})       { 'features' }
+
+  watch(%r{^features/step_definitions/(.+)_steps\.rb$}) do |m|
+    Dir[File.join("**/#{m[1]}.feature")][0] || 'features'
+  end
+
+  # Rerun failed features
+  watch('config/routes.rb')
+  watch(%r{^app/(.*)\.rb})
+  watch(%r{^app/(.*)\.erb})
 end
 

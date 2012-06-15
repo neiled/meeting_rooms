@@ -1,0 +1,14 @@
+
+<%= form_for(@meeting_room) do |f| %>
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name %></div>
+
+  <div><%= f.label :location_description %><br />
+  <%= f.text_field :location %></div>
+
+  <div><%= f.label :max_people %><br />
+  <%= f.text_field :max_people %></div>
+
+  <div><%= f.submit "Create" %></div>
+<% end %>
+

@@ -6,6 +6,7 @@ MeetingRooms::Application.routes.draw do
   root :to => "static_pages#home"
   devise_for :users
   resources :users, :only => :show
+  resources :meeting_rooms
 
 
   # The priority is based upon order of creation:
