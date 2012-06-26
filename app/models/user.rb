@@ -45,4 +45,9 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+  before_create :assign_to_office
+
+  def assign_to_office
+    create_office
+  end
 end
