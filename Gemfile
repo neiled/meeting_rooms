@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.5'
+gem 'rails', '3.2.6'
 
 gem "twitter-bootstrap-rails"
 gem "bson_ext", "~> 1.5"
