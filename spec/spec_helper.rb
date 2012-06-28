@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'spork'
+require 'database_cleaner'
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
@@ -34,7 +35,9 @@ Spork.prefork do
     # examples within a transaction, remove the following line or assign false
     # instead of true.
     # config.use_transactional_fixtures = true
-
+    config.before :each do
+      Mongoid.purge!
+    end
     # If true, the base class of anonymous controllers will be inferred
     # automatically. This will be the default behavior in future versions of
     # rspec-rails.
