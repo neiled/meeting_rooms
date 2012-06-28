@@ -8,6 +8,12 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  before_create :setup_office
+
+  def setup_office
+    self.office = Office.create!
+  end
+
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
 
   field :name
@@ -45,9 +51,4 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
-  before_create :assign_to_office
-
-  def assign_to_office
-    create_office
-  end
 end
