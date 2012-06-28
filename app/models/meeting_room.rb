@@ -7,4 +7,6 @@ class MeetingRoom
   field :name, :type => String
   field :location_description, :type => String
   field :max_people, :type => Integer
+
+  validates_presence_of :name
 end

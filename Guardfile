@@ -15,6 +15,14 @@ guard 'rspec', :version => 2, :all_after_pass => false, :cli => '--color --forma
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
   # Capybara request specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
+
+  watch(%r{^spec/factories/(.+)\.rb$}) do |m|
+    %W[
+      spec/models/#{m[1].singularize}_spec.rb
+      spec/controllers/#{m[1]}_controller_spec.rb
+      spec/requests/#{m[1]}_spec.rb
+    ]
+  end
 end
 
 
