@@ -8,5 +8,5 @@ class MeetingRoom
   field :location_description, :type => String
   field :max_people, :type => Integer
 
-  validates_presence_of :name
+  validates_presence_of :name, :location_description, :max_people
 end

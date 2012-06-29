@@ -13,4 +13,15 @@ describe MeetingRoom do
     before { @room.name = "" }
     it {should_not be_valid}
   end
+
+  describe "when location description is not present" do
+    before { @room.location_description = "" }
+    it { should_not be_valid }
+  end
+
+  describe "when maximum capacity is not present" do
+    before { @room.max_people = nil }
+    it { should_not be_valid }
+  end
+
 end
