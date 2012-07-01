@@ -1,4 +1,6 @@
 MeetingRooms::Application.routes.draw do
+  get "invitations/new"
+
   devise_for :users
 
   get "static_pages/home"

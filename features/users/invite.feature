@@ -5,7 +5,7 @@ Feature: As an administrator
   Scenario: Inviting a user sends them an email
     Given I sign up with valid user data
     And I invite another user to the system
-    Then an email should be sent
+    Then an email should be sent to the invited user
 
   Scenario: Receiving an email allows a user to sign up
     Given I have received an invitation email
