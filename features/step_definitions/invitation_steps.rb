@@ -12,7 +12,7 @@ Given /^I invite another user to the system$/ do
 end
 
 Then /^an email should be sent to the invited user$/ do
-  pending # express the regexp above with the code you wish you had
+  ActionMailer::Base.deliveries.last.to.should include(@invitee[:email])
 end
 
 Given /^I have received an invitation email$/ do

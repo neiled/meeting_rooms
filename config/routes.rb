@@ -1,5 +1,6 @@
 MeetingRooms::Application.routes.draw do
   get "invitations/new"
+  post "invitations/create"
 
   devise_for :users
 
