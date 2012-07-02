@@ -2,12 +2,10 @@ require "spec_helper"
 
 describe InvitationMailer do
   describe "send_invite" do
-    let(:mail) { InvitationMailer.send_invite }
+    let(:mail) { InvitationMailer.send_invite("Test User", "to@example.com") }
 
-    it "renders the headers" do
-      mail.subject.should eq("Send invite")
-      mail.to.should eq(["to@example.org"])
-      mail.from.should eq(["from@example.com"])
+    it "should send the correct email" do
+      mail.to.should eq(["to@example.com"])
     end
 
     it "renders the body" do

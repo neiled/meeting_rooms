@@ -15,16 +15,13 @@ Then /^an email should be sent to the invited user$/ do
   ActionMailer::Base.deliveries.last.to.should include(@invitee[:email])
 end
 
-Given /^I have received an invitation email$/ do
-  pending # express the regexp above with the code you wish you had
+When /^they follow the link in the email$/ do
+  sign_up(Office.last.invitation_token)
+  
 end
 
-When /^I follow the link in the email$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^I should be signed up to the office I was invited from$/ do
-  pending # express the regexp above with the code you wish you had
+Then /^they should be signed up to the office I was invited from$/ do
+  User.find(email: "invite@example.com").office.should be(Office.last)
 end
 
 Given /^I have not received an invitation email$/ do

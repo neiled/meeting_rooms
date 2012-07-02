@@ -25,9 +25,9 @@ def delete_user
   @user.destroy unless @user.nil?
 end
 
-def sign_up
+def sign_up(invitation_token = nil)
   delete_user
-  visit '/users/sign_up'
+  visit new_user_registration_path(invitation_token)
   fill_in "Name", :with => @visitor[:name]
   fill_in "Email", :with => @visitor[:email]
   fill_in "Password", :with => @visitor[:password]
