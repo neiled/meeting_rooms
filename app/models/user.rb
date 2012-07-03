@@ -11,7 +11,7 @@ class User
   before_create :setup_office
 
   def setup_office
-    self.office = Office.create!
+    self.office = Office.create! unless self.office
   end
 
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me

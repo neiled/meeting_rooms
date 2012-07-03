@@ -25,11 +25,12 @@ def delete_user
   @user.destroy unless @user.nil?
 end
 
-def sign_up(invitation_token = nil)
+def sign_up(invitation_token = nil, email = nil)
   delete_user
   visit new_user_registration_path(invitation_token)
+  print email
   fill_in "Name", :with => @visitor[:name]
-  fill_in "Email", :with => @visitor[:email]
+  fill_in "Email", :with => email || @visitor[:email]
   fill_in "Password", :with => @visitor[:password]
   fill_in "Password confirmation", :with => @visitor[:password_confirmation]
   click_button "Sign up"

@@ -10,8 +10,8 @@ Feature: As an administrator
   Scenario: Receiving an email allows a user to sign up
     Given I sign up with valid user data
     And I invite another user to the system
-    When they follow the link in the email
-    And I sign up with valid user data
+    When I sign out
+    And they follow the link in the email
     Then they should be signed up to the office I was invited from
 
   Scenario: Not receiving an email doesn't allow a user to sign up

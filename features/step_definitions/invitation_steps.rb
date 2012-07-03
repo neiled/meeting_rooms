@@ -16,12 +16,13 @@ Then /^an email should be sent to the invited user$/ do
 end
 
 When /^they follow the link in the email$/ do
-  sign_up(Office.last.invitation_token)
-  
+  sign_up(Office.last.invitation_token, "invite@example.com")
 end
 
 Then /^they should be signed up to the office I was invited from$/ do
-  User.find(email: "invite@example.com").office.should be(Office.last)
+  user = User.first conditions: {email: "invite@example.com"}
+  Office.count.should == 1
+  user.office.should == Office.last
 end
 
 Given /^I have not received an invitation email$/ do
