@@ -6,7 +6,7 @@ gem "twitter-bootstrap-rails"
 gem "bson_ext", "~> 1.5"
 gem 'mongoid'
 gem 'devise'
-gem 'devise_invitable', '~> 1.0.0'
+# gem 'devise_invitable'
 
 
 # Gems used only for assets and not required
