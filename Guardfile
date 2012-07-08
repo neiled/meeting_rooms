@@ -40,7 +40,7 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch('config/routes.rb')
 end
 
-guard 'cucumber', :cli => '--no-profile --drb --color --strict --format progress --format rerun --out rerun.txt',
+guard 'cucumber', :cli => '--no-profile --color --strict --format progress --format rerun --out rerun.txt',
                   :all_on_start => false do
   watch(%r{^features/.+\.feature$})
   watch(%r{^features/support/.+$}) { 'features' }

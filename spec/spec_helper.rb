@@ -15,6 +15,11 @@ Spork.prefork do
   require 'rspec/rails'
   require 'rspec/autorun'
 
+  require "rails/application"
+  Spork.trap_method(Rails::Application::RoutesReloader, :reload!) # Rails 3.1
+
+  require File.dirname(__FILE__) + "/../config/environment.rb"
+
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
@@ -43,6 +48,8 @@ Spork.prefork do
     # rspec-rails.
     config.infer_base_class_for_anonymous_controllers = false
   end
+  
+  ActiveSupport::Dependencies.clear
 end
 
 Spork.each_run do
