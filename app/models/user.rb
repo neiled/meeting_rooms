@@ -8,7 +8,18 @@ class User
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  #has_many :invitations, :class_name => self.class.to_s, :as => :invited_by
+
   before_create :setup_office
+
+  after_invitation_accepted :change_office_to_invitor
+
+  def change_office_to_invitor
+    p "#change_office_to_invitor"
+    self.office = User.find(self.invited_by_id).office
+    self.save!
+    return true
+  end
 
   def setup_office
     self.office = Office.create!

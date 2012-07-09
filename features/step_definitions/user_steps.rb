@@ -21,6 +21,7 @@ def create_user
 end
 
 def delete_user
+  create_visitor
   @user ||= User.first conditions: {:email => @visitor[:email]}
   @user.destroy unless @user.nil?
 end
